@@ -1,0 +1,29 @@
+//java code
+import java.util.*;
+public class Main 
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int m=sc.nextInt();
+        int hotelVal[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            hotelVal[i]=sc.nextInt();
+        }
+        int l=0,r=0,currsum=0,maxsum=0;
+        while(r<n)
+        {
+            currsum+=hotelVal[r];
+            while(currsum>m)
+            {
+                currsum-=hotelVal[l];
+                l++;
+            }
+            maxsum=Math.max(maxsum,currsum);
+            r++;
+        }
+        System.out.println(maxsum);
+    }
+}
