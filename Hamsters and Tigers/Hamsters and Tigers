@@ -1,0 +1,39 @@
+// You are using Java code
+import java.util.*;
+import java.io.*;
+public class Main 
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        String s=sc.next();
+        int cnt=0,val=0,i;
+        char c[]=s.toCharArray();
+        for(i=0;i<n;i++)
+        {
+            if(c[i]=='T')
+            {
+                cnt++;
+            }
+        }
+        val=cnt;
+        for(i=0;i<n;i++)
+        {
+            int cnt1=0,j;
+            for(j=0;j<cnt;j++)
+            {
+                if(c[(i+j)%n]=='H')
+                {
+                    cnt1++;
+                }
+            }
+            if(cnt1<val)
+            {
+                val=cnt1;
+            }
+        }
+        System.out.println(val);
+    }
+   
+}
